@@ -4,7 +4,16 @@ jobs:
   start-eslint:
     runs-on: ubuntu-latest
     steps:
+      - name: pull project's reposetory in this runner
+        uses: actions/checkout@v2
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
       - name: install
         run: make install
+
       - name: linting
         run: make lint
