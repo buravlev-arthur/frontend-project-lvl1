@@ -4,5 +4,7 @@ jobs:
   start-eslint:
     runs-on: ubuntu-latest
     steps:
+      - name: install
+        install: make install
       - name: linting
         run: make lint
