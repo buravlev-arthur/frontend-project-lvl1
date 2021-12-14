@@ -2,7 +2,7 @@ name: project-linting
 on: push
 jobs:
   start-eslint:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: linting
         run: make lint
