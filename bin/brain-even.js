@@ -1,21 +1,16 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+import askName from '../src/cli.js';
 
 let userName = '';
 let countOfQuestions = 3;
-
-const askName = () => {
-  userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-};
 
 const askNumber = (question) => {
   const answer = readlineSync.question(`${question} `);
   return answer;
 };
 
-console.log('Welcome to the Brain Games!');
-askName();
+userName = askName();
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 while (countOfQuestions > 0) {
