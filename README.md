@@ -4,4 +4,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
 ### Установка и запуск игры
-[Видео с демострацией процесса установки и запуска игры](https://asciinema.org/a/MTHSYvAbzUYcOkJlnvRl6N3yt)
+[Видео с демострацией процесса установки и запуска игры](https://asciinema.org/a/5eQaAY0D19CEICdrF1Zxa5PMf)
