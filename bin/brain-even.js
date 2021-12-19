@@ -5,8 +5,9 @@ import askName from '../src/cli.js';
 let userName = '';
 let countOfQuestions = 3;
 
-const askNumber = (question) => {
-  const answer = readlineSync.question(`${question} `);
+const askNumber = (number) => {
+  console.log(`Question: ${number}`);
+  const answer = readlineSync.question('Your answer: ');
   return answer;
 };
 
