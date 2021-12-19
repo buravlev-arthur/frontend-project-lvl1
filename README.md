@@ -7,3 +7,4 @@
 - [Демострацией процесса установки и запуска игры brain-even](https://asciinema.org/a/5eQaAY0D19CEICdrF1Zxa5PMf)
 - [Демонстрация игры brain-calc](https://asciinema.org/a/5EwBRTjPJT4GWm1yHXkCxFvTe)
 - [Демонстрация игры brain-gcd](https://asciinema.org/a/fXMNfiD97ITZSPmXRhfehqvrt)
+- [Демонстрация игры brain-progression](https://asciinema.org/a/eMhZGju4b30x6vIcXj5BP9l6N)
