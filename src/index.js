@@ -11,8 +11,8 @@ const askName = () => {
 
 export const playGame = (questions, rightAnswers, restRounds, rules, name = '') => {
   let playerName = name;
-  const [question, ...restQuestions] = questions;
-  const [rightAnswer, ...restRightAnswers] = rightAnswers;
+  const question = questions[0];
+  const rightAnswer = rightAnswers[0];
 
   if (playerName.length === 0) {
     playerName = askName();
@@ -26,7 +26,10 @@ export const playGame = (questions, rightAnswers, restRounds, rules, name = '') 
     console.log('Correct!');
 
     if (restRounds > 1) {
-      playGame(restQuestions, restRightAnswers, restRounds - 1, '', playerName);
+      questions.shift();
+      rightAnswers.shift();
+
+      playGame(questions, rightAnswers, restRounds - 1, '', playerName);
     } else {
       console.log(`Congratulations, ${playerName}!`);
     }
