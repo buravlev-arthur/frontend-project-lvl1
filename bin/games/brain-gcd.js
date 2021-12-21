@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { askName, askQuestions, countOfRounds } from '../../src/index.js';
+import { countOfRounds, playGame } from '../../src/index.js';
 
-let userName = '';
 const questions = [];
 const rightAnswers = [];
+const rulesOfGame = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (n1, n2) => {
   let n = 1;
@@ -29,6 +29,4 @@ for (let i = 0; i < countOfRounds; i += 1) {
   rightAnswers.push(getGCD(randomNumberOne, randomNumberTwo));
 }
 
-userName = askName();
-console.log('Find the greatest common divisor of given numbers.');
-askQuestions(questions, rightAnswers, countOfRounds, userName);
+playGame(questions, rightAnswers, countOfRounds, rulesOfGame);

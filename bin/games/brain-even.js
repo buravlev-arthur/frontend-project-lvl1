@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { countOfRounds, askName, askQuestions } from '../../src/index.js';
+import { countOfRounds, playGame } from '../../src/index.js';
 
-let userName = '';
 const questions = [];
 const rightAnswers = [];
+const rulesOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 for (let i = 0; i < countOfRounds; i += 1) {
   const randomNumber = Math.round(Math.random() * 100 + 1);
@@ -13,6 +13,4 @@ for (let i = 0; i < countOfRounds; i += 1) {
   rightAnswers.push(rightAnswer);
 }
 
-userName = askName();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-askQuestions(questions, rightAnswers, countOfRounds, userName);
+playGame(questions, rightAnswers, countOfRounds, rulesOfGame);

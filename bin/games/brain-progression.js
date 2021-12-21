@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { askName, askQuestions, countOfRounds } from '../../src/index.js';
+import { countOfRounds, playGame } from '../../src/index.js';
 
-let userName = '';
 const questions = [];
 const rightAnswers = [];
+const rulesOfGame = 'What number is missing in the progression?';
 
 const generateProgression = () => {
   const progressionLength = Math.round(Math.random() * 15 + 5);
@@ -34,6 +34,4 @@ for (let i = 0; i < countOfRounds; i += 1) {
   makeQuestionAndAnswer(generateProgression());
 }
 
-userName = askName();
-console.log('What number is missing in the progression?');
-askQuestions(questions, rightAnswers, countOfRounds, userName);
+playGame(questions, rightAnswers, countOfRounds, rulesOfGame);

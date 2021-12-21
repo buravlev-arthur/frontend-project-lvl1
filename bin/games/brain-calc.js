@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import { countOfRounds, askName, askQuestions } from '../../src/index.js';
+import { countOfRounds, playGame } from '../../src/index.js';
 
-let userName = '';
 const operators = ['+', '-', '*'];
 const questions = [];
 const rightAnswers = [];
+const rulesOfGame = 'What is the result of the expression?';
 
 for (let i = 0; i < countOfRounds; i += 1) {
   const operator = operators[Math.round(Math.random() * 2)];
@@ -32,6 +32,4 @@ for (let i = 0; i < countOfRounds; i += 1) {
   rightAnswers.push(rightAnswer);
 }
 
-userName = askName();
-console.log('What is the result of the expression?');
-askQuestions(questions, rightAnswers, countOfRounds, userName);
+playGame(questions, rightAnswers, countOfRounds, rulesOfGame);

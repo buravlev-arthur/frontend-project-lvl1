@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { askName, askQuestions, countOfRounds } from '../../src/index.js';
+import { countOfRounds, playGame } from '../../src/index.js';
 
-let userName = '';
 const questions = [];
 const rightAnswers = [];
+const rulesOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrimal = (n) => {
   let divisor = 2;
@@ -27,6 +27,4 @@ for (let i = 0; i < countOfRounds; i += 1) {
   rightAnswers.push(rightAnswer);
 }
 
-userName = askName();
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-askQuestions(questions, rightAnswers, countOfRounds, userName);
+playGame(questions, rightAnswers, countOfRounds, rulesOfGame);
