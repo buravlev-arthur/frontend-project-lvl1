@@ -28,7 +28,7 @@ export const playGame = (questions, rightAnswers, restRounds, rules, name = '') 
     if (restRounds > 1) {
       playGame(restQuestions, restRightAnswers, restRounds - 1, '', playerName);
     } else {
-      console.log(`Congratulations, ${playerName}`);
+      console.log(`Congratulations, ${playerName}!`);
     }
   } else {
     console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
