@@ -1,6 +1,8 @@
 import { countOfRounds, playGame } from '../index.js';
 
 const isPrimal = (n) => {
+  if (n === 1) return false;
+
   let divisor = 2;
 
   while (divisor < n) {
