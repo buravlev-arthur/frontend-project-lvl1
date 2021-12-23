@@ -9,32 +9,35 @@ const askName = () => {
   return name;
 };
 
-export const playGame = (questions, rightAnswers, restRounds, rules, name = '') => {
-  let playerName = name;
-  const question = questions[0];
-  const rightAnswer = rightAnswers[0];
-
-  if (playerName.length === 0) {
-    playerName = askName();
-    console.log(rules);
-  }
-
+const askQuestion = (question, rightAnswer) => {
   console.log(`Question: ${question}`);
   const answer = readlineSync.question('Your answer: ');
 
   if (answer === rightAnswer) {
     console.log('Correct!');
+    return true;
+  }
 
-    if (restRounds > 1) {
-      questions.shift();
-      rightAnswers.shift();
+  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+  return false;
+};
 
-      playGame(questions, rightAnswers, restRounds - 1, '', playerName);
-    } else {
+export const playGame = (questions, rightAnswers, rules) => {
+  const playerName = askName();
+
+  console.log(rules);
+
+  for (let i = 1; i <= countOfRounds; i += 1) {
+    const question = questions.shift();
+    const rightAnswer = rightAnswers.shift();
+
+    if (!askQuestion(question, rightAnswer)) {
+      console.log(`Let's try again, ${playerName}!`);
+      break;
+    }
+
+    if (i === countOfRounds) {
       console.log(`Congratulations, ${playerName}!`);
     }
-  } else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
-    console.log(`Let's try again, ${playerName}!`);
   }
 };
