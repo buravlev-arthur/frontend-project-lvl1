@@ -1,9 +1,9 @@
 import { countOfRounds, getRandomNumber, playGame } from '../index.js';
 
 const generateProgression = () => {
-  const progressionLength = Math.round(Math.random() * 15 + 5);
-  const startNumber = Math.round(Math.random() * 100 + 1);
-  const progressionStep = Math.round(Math.random() * 10 + 2);
+  const progressionLength = getRandomNumber(5, 15);
+  const startNumber = getRandomNumber(1, 100);
+  const progressionStep = getRandomNumber(2, 10);
   const progression = [];
 
   let currNumber = startNumber;
