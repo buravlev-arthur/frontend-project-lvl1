@@ -1,4 +1,4 @@
-import { countOfRounds, playGame } from '../index.js';
+import { countOfRounds, getRandomNumber, playGame } from '../index.js';
 
 const isPrimal = (n) => {
   if (n === 1) return false;
@@ -17,17 +17,15 @@ const isPrimal = (n) => {
 };
 
 export default () => {
-  const questions = [];
-  const rightAnswers = [];
-  const rulesOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const questionsAndAnswers = [];
+  const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
   for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNumber = Math.round(Math.random() * 100 + 1);
-    questions.push(String(randomNumber));
+    const question = getRandomNumber(1, 100);
+    const rightAnswer = isPrimal(question) ? 'yes' : 'no';
 
-    const rightAnswer = isPrimal(randomNumber) ? 'yes' : 'no';
-    rightAnswers.push(rightAnswer);
+    questionsAndAnswers.push([String(question), rightAnswer]);
   }
 
-  playGame(questions, rightAnswers, rulesOfGame);
+  playGame(questionsAndAnswers, ruleOfGame);
 };

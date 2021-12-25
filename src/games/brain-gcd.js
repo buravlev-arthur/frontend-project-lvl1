@@ -1,4 +1,4 @@
-import { countOfRounds, playGame } from '../index.js';
+import { countOfRounds, getRandomNumber, playGame } from '../index.js';
 
 const getGCD = (n1, n2) => {
   let n = 1;
@@ -17,17 +17,18 @@ const getGCD = (n1, n2) => {
 };
 
 export default () => {
-  const questions = [];
-  const rightAnswers = [];
-  const rulesOfGame = 'Find the greatest common divisor of given numbers.';
+  const questionsAndAnswers = [];
+  const ruleOfGame = 'Find the greatest common divisor of given numbers.';
 
   for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNumberOne = Math.round(Math.random() * 100 + 1);
-    const randomNumberTwo = Math.round(Math.random() * 100 + 1);
+    const numberOne = getRandomNumber(1, 100);
+    const numberTwo = getRandomNumber(1, 100);
 
-    questions.push(`${randomNumberOne} ${randomNumberTwo}`);
-    rightAnswers.push(getGCD(randomNumberOne, randomNumberTwo));
+    const question = `${numberOne} ${numberTwo}`;
+    const rightAnswer = getGCD(numberOne, numberTwo);
+
+    questionsAndAnswers.push([question, rightAnswer]);
   }
 
-  playGame(questions, rightAnswers, rulesOfGame);
+  playGame(questionsAndAnswers, ruleOfGame);
 };

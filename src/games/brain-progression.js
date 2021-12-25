@@ -1,4 +1,4 @@
-import { countOfRounds, playGame } from '../index.js';
+import { countOfRounds, getRandomNumber, playGame } from '../index.js';
 
 const generateProgression = () => {
   const progressionLength = Math.round(Math.random() * 15 + 5);
@@ -17,20 +17,21 @@ const generateProgression = () => {
 };
 
 export default () => {
-  const questions = [];
-  const rightAnswers = [];
-  const rulesOfGame = 'What number is missing in the progression?';
+  const questionsAndAnswers = [];
+  const ruleOfGame = 'What number is missing in the progression? 2';
 
   for (let i = 0; i < countOfRounds; i += 1) {
     const progression = generateProgression();
-    const sectetNumberIndex = Math.round(Math.random() * (progression.length - 1));
+    const sectetNumberIndex = getRandomNumber(0, progression.length - 1);
 
-    rightAnswers.push(progression[sectetNumberIndex]);
+    const numbersRow = [...progression];
+    numbersRow[sectetNumberIndex] = '..';
 
-    const question = [...progression];
-    question[sectetNumberIndex] = '..';
-    questions.push(question.join(' '));
+    const question = numbersRow.join(' ');
+    const rightAnswer = progression[sectetNumberIndex];
+
+    questionsAndAnswers.push([question, rightAnswer]);
   }
 
-  playGame(questions, rightAnswers, rulesOfGame);
+  playGame(questionsAndAnswers, ruleOfGame);
 };

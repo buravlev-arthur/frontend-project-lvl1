@@ -1,36 +1,41 @@
-import { countOfRounds, playGame } from '../index.js';
+import { countOfRounds, getRandomNumber, playGame } from '../index.js';
 
-export default () => {
-  const operators = ['+', '-', '*'];
-  const questions = [];
-  const rightAnswers = [];
-  const rulesOfGame = 'What is the result of the expression?';
+const operators = ['+', '-', '*'];
 
-  for (let i = 0; i < countOfRounds; i += 1) {
-    const operator = operators[Math.round(Math.random() * 2)];
-    const operandOne = Math.round(Math.random() * 100 + 1);
-    const operandTwo = Math.round(Math.random() * 100 + 1);
+const getResultOfExpression = (operandOne, operandTwo, operator) => {
+  let result;
 
-    questions.push(`${operandOne} ${operator} ${operandTwo}`);
-
-    let rightAnswer = 0;
-
-    switch (operator) {
-      case '+':
-        rightAnswer = String(operandOne + operandTwo);
-        break;
-      case '-':
-        rightAnswer = String(operandOne - operandTwo);
-        break;
-      case '*':
-        rightAnswer = String(operandOne * operandTwo);
-        break;
-      default:
-        rightAnswer = 0;
-    }
-
-    rightAnswers.push(rightAnswer);
+  switch (operator) {
+    case '+':
+      result = String(operandOne + operandTwo);
+      break;
+    case '-':
+      result = String(operandOne - operandTwo);
+      break;
+    case '*':
+      result = String(operandOne * operandTwo);
+      break;
+    default:
+      result = 0;
   }
 
-  playGame(questions, rightAnswers, rulesOfGame);
+  return result;
+};
+
+export default () => {
+  const questionsAndAnswers = [];
+  const ruleOfGame = 'What is the result of the expression?';
+
+  for (let i = 0; i < countOfRounds; i += 1) {
+    const operator = operators[getRandomNumber(0, 2)];
+    const operandOne = getRandomNumber(1, 100);
+    const operandTwo = getRandomNumber(1, 100);
+
+    const question = `${operandOne} ${operator} ${operandTwo}`;
+    const rightAnswer = getResultOfExpression(operandOne, operandTwo, operator);
+
+    questionsAndAnswers.push([question, rightAnswer]);
+  }
+
+  playGame(questionsAndAnswers, ruleOfGame);
 };

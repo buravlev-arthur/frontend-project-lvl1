@@ -1,17 +1,17 @@
-import { countOfRounds, playGame } from '../index.js';
+import { countOfRounds, getRandomNumber, playGame } from '../index.js';
+
+const isEven = (n) => n % 2 === 0;
 
 export default () => {
-  const questions = [];
-  const rightAnswers = [];
-  const rulesOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const questionsAndAnswers = [];
+  const ruleOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
 
   for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNumber = Math.round(Math.random() * 100 + 1);
-    questions.push(randomNumber);
+    const question = getRandomNumber(1, 100);
+    const rightAnswer = isEven(question) ? 'yes' : 'no';
 
-    const rightAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
-    rightAnswers.push(rightAnswer);
+    questionsAndAnswers.push([question, rightAnswer]);
   }
 
-  playGame(questions, rightAnswers, rulesOfGame);
+  playGame(questionsAndAnswers, ruleOfGame);
 };
