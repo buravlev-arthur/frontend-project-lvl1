@@ -4,12 +4,12 @@ export const countOfRounds = 3;
 
 export const getRandomNumber = (min, max) => Math.round(Math.random() * max + min);
 
-export const playGame = (questionsAndAnswers, rule) => {
+export const playGame = (questionsAndAnswers, ruleOfGame) => {
   console.log('Welcome to the Brain Games!');
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
 
-  console.log(rule);
+  console.log(ruleOfGame);
 
   for (let i = 0; i < countOfRounds; i += 1) {
     console.log(`Question: ${questionsAndAnswers[i][0]}`);
