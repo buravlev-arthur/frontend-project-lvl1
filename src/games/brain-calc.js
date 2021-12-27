@@ -1,4 +1,5 @@
-import { countOfRounds, getRandomNumber, playGame } from '../index.js';
+import { countOfRounds, playGame } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const operators = ['+', '-', '*'];
 
@@ -16,7 +17,7 @@ const getResultOfExpression = (operandOne, operandTwo, operator) => {
       result = String(operandOne * operandTwo);
       break;
     default:
-      result = 0;
+      throw new Error(`Selecting operator error. Selected operator is '${operator}'. Expected '+', '-' or '*'`);
   }
 
   return result;

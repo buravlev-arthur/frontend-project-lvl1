@@ -1,4 +1,5 @@
-import { countOfRounds, getRandomNumber, playGame } from '../index.js';
+import { countOfRounds, playGame } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const getGCD = (n1, n2) => {
   let n = 1;

@@ -1,4 +1,5 @@
-import { countOfRounds, getRandomNumber, playGame } from '../index.js';
+import { countOfRounds, playGame } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const isPrimal = (n) => {
   if (n === 1) return false;
