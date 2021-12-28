@@ -26,7 +26,7 @@ export default () => {
     const numberTwo = getRandomNumber(1, 100);
 
     const question = `${numberOne} ${numberTwo}`;
-    const rightAnswer = String(getGCD(numberOne, numberTwo));
+    const rightAnswer = getGCD(numberOne, numberTwo);
 
     questionsAndAnswers.push([question, rightAnswer]);
   }

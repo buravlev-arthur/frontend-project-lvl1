@@ -30,7 +30,7 @@ export default () => {
     numbersRow[sectetNumberIndex] = '..';
 
     const question = numbersRow.join(' ');
-    const rightAnswer = String(progression[sectetNumberIndex]);
+    const rightAnswer = progression[sectetNumberIndex];
 
     questionsAndAnswers.push([question, rightAnswer]);
   }

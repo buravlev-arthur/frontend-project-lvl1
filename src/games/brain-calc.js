@@ -14,7 +14,7 @@ export default () => {
     const operandTwo = getRandomNumber(1, 100);
 
     const question = `${operandOne} ${operator} ${operandTwo}`;
-    const rightAnswer = String(calc(operandOne, operandTwo, operator));
+    const rightAnswer = calc(operandOne, operandTwo, operator);
 
     questionsAndAnswers.push([question, rightAnswer]);
   }
