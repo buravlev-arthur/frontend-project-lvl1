@@ -1,20 +1,20 @@
 import { countOfRounds, playGame } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const getGCD = (n1, n2) => {
   let n = 1;
-  let nod = 0;
+  let gcd = 0;
   const min = Math.min(Math.abs(n1), Math.abs(n2));
 
   while (n <= min) {
     if (n1 % n === 0 && n2 % n === 0) {
-      nod = n;
+      gcd = n;
     }
 
     n += 1;
   }
 
-  return String(nod);
+  return gcd;
 };
 
 export default () => {
@@ -26,7 +26,7 @@ export default () => {
     const numberTwo = getRandomNumber(1, 100);
 
     const question = `${numberOne} ${numberTwo}`;
-    const rightAnswer = getGCD(numberOne, numberTwo);
+    const rightAnswer = String(getGCD(numberOne, numberTwo));
 
     questionsAndAnswers.push([question, rightAnswer]);
   }

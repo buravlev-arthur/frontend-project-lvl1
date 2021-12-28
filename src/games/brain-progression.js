@@ -1,12 +1,12 @@
 import { countOfRounds, playGame } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const generateProgression = (progressionLength, startNumber, progressionStep) => {
   const progression = [];
   let currNumber = startNumber;
 
   for (let i = 0; i < progressionLength; i += 1) {
-    progression.push(String(currNumber));
+    progression.push(currNumber);
     currNumber += progressionStep;
   }
 
@@ -30,7 +30,7 @@ export default () => {
     numbersRow[sectetNumberIndex] = '..';
 
     const question = numbersRow.join(' ');
-    const rightAnswer = progression[sectetNumberIndex];
+    const rightAnswer = String(progression[sectetNumberIndex]);
 
     questionsAndAnswers.push([question, rightAnswer]);
   }
